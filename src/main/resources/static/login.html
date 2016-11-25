@@ -1,0 +1,18 @@
+<div class="centered">
+    <div id="login-form-wrapper">
+        <div class="alert" ng-show="error">
+            Username or password was incorrect. Please try again.
+        </div>
+        <br>
+        <form name="loginForm" role="form" ng-submit="login(loginForm)" class="login-form">
+            <label for="username">Username:</label>
+            <input class="text-input" type="text" id="username" name="username" ng-model="credentials.username" placeholder="Enter username."/>
+            <br>
+            <label for="password">Password:</label>
+            <input class="text-input" type="password" id="password" name="password" ng-model="credentials.password" placeholder="Enter password."/>
+            <br>
+            <input class="button" type="submit" value="Login"/>
+            <br>
+        </form>
+    </div>
+</div>

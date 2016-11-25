@@ -1,0 +1,55 @@
+<div>
+    <ul class="top-list">
+
+        <div class="mainList2">
+            <h2>Top Posts:</h2>
+            <br>
+            <li>
+                <ul>
+                    <li ng-repeat="x in topPosts">
+                        <ul>
+                            <li>
+                                <a href="" ng-click="goToPost(x.id, x.title)">Title: {{x.title}}</a>
+                            </li>
+                            <li>
+                                Likes: {{x.likes}}
+                            </li>
+                            <li>
+                                Comments: {{x.cmmnts}}
+                            </li>
+                            <li>
+                                Date: {{x.submit_date}}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <div class="mainList2">
+            <h2>Top Comment</h2>
+            <br>
+            <li>
+                <ul>
+                    <li>
+                        <a href="" ng-click="goToPost(topComment.postId, originalPost)">Original Post: {{originalPost}}</a>
+                    </li>
+                    <li>
+                        Comment: {{topComment.body}}
+                    </li>
+                    <li>
+                        Sub-Comments: {{topComment.cmmnts}}
+                    </li>
+                    <li>
+                        Likes: {{topComment.likes}}
+                    </li>
+                    <li>
+                        Date: {{topComment.submit_date}}
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+    </ul>
+
+</div>

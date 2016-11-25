@@ -1,0 +1,30 @@
+<div class="centered">
+    <div id="login-form-wrapper">
+
+        <div class="alert" ng-show="error">
+            {{errorResponse}}
+            {{errorResponseUserName}}
+        </div>
+
+        <br>
+        <form name="registerForm" role="form" ng-submit="register(registerForm)" class="login-form">
+            <label for="username">Username:</label>
+            <input class="text-input" type="text" id="username" name="username" ng-model="credentials.username" placeholder="Enter username."/>
+            <br>
+
+            <label for="password">Password:</label>
+            <input class="text-input" type="password" id="password" name="password" ng-model="credentials.password" placeholder="Enter password."/>
+            <br>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input class="text-input" type="password" id="confirm-password" name="password" ng-model="credentials.confirmPassword" placeholder="Confirm password."/>
+            <br>
+
+            <input class="button" type="submit" value="Register"/>
+            <br>
+                <p id="small-login-text">
+                Already have an account? <a id="red-login" href="" ng-click="goToLogin()">Login</a>
+                </p>
+        </form>
+    </div>
+</div>

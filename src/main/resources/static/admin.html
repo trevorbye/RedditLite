@@ -1,0 +1,52 @@
+<h1>Admin Tools</h1>
+
+<div>
+    <h3>
+        Remove Comment
+    </h3>
+    <br>
+    <input type="text" placeholder="Paste in comment body." ng-model="commentInfo.body">
+    <br>
+    <input type="text" placeholder="Username" ng-model="commentInfo.username">
+    <br>
+    <button ng-click="queryComment()">Search</button>
+
+    <br>
+    {{response}}
+    <br>
+
+    <div ng-show="showConfirm">
+        <p>Root Post</p>
+        <br>
+        <ul>
+            <li>
+                Title: {{post.title}}
+            </li>
+            <li>
+                Body: {{post.body}}
+            </li>
+            <li>
+                User: {{post.username}}
+            </li>
+            <li>
+                Date: {{post.submit_date}}
+            </li>
+        </ul>
+
+        <br>
+
+        <p>Comment to Delete</p>
+        <br>
+        <ul>
+            <li>Body: {{node.body}}</li>
+            <li>User: {{node.username}}</li>
+            <li>Date: {{node.submit_date}}</li>
+        </ul>
+
+        <br>
+        <br>
+        <button ng-click="deleteComment()">Confirm Deletion</button>
+    </div>
+
+
+</div>

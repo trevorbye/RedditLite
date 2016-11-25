@@ -1,0 +1,76 @@
+<div>
+
+    <div ng-hide="!authenticated" class="post-container">
+        <div class="new-post" ng-show="show">
+            <br>
+            <input class="text-input" type="text" placeholder="Enter a title." ng-model="addComment.title">
+            <br>
+            <textarea id="big-input" class="text-input" type="text" placeholder="Enter your post." ng-model="addComment.body"></textarea>
+            <br>
+            <button id="post-button" ng-click="addPost(); show = !show">Post</button>
+            <br>
+        </div>
+    </div>
+
+    <div class="home-button-wrapper">
+        <ul class="home-buttons">
+            <li><button ng-hide="!authenticated || show" ng-click="profilePage()">Profile</button></li>
+            <li><button ng-hide="!admin || show" ng-click="adminPage()">Admin Tools</button></li>
+            <li><button ng-hide="authenticated" ng-click="loginPage()">Login</button></li>
+            <li><button ng-hide="authenticated" ng-click="registerPage()">Register</button></li>
+            <li><button ng-hide="!authenticated || show" ng-click="show = !show">New Post</button></li>
+        </ul>
+    </div>
+
+    <div class="wrapper">
+        <ul id="list-container">
+
+            <li ng-repeat="x in postList" class="mainList">
+
+                <div class="title">
+                    <ul>
+                        <li id="title-text">
+                            <a href="" ng-click="controller.goToPost(x.id, x.title)">{{x.title}}</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="body">
+                    <ul>
+                        <li>
+                            {{x.body}}
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="foot">
+                    <ul>
+                        <li class="small-text">
+                            Comments: {{x.cmmnts}}
+                        </li>
+                        <li class="small-text">
+                            Likes: {{x.likes}}
+                        </li>
+                        <li class="small-text">
+                            u/{{x.username}}
+                        </li>
+                        <li class="small-text">
+                            Date: {{x.submit_date}}
+                        </li>
+                    </ul>
+                </div>
+
+            </li>
+
+        </ul>
+    </div>
+
+<div class="page-container">
+    <ul class="page-list">
+       <li ng-repeat="x in pageCount">
+           <a href="" ng-click="controller.changePage(x)">{{x}}</a>
+       </li>
+    </ul>
+</div>
+
+</div>

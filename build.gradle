@@ -1,0 +1,43 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+jar {
+	baseName = 'redditlite'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.4.1.RELEASE'
+	//allows spring to manage ORM
+	compile 'org.springframework:spring-orm:4.2.5.RELEASE'
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.0.9.Final'
+	compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.0.9.Final'
+	compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.10.3.RELEASE'
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.3'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.3'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.8.3'
+	compile 'org.apache.tomcat:tomcat-dbcp:8.0.32'
+	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.39'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}

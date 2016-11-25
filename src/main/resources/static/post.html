@@ -1,0 +1,100 @@
+<script type="text/ng-template" id="postTree">
+
+    <div class="mainList2">
+
+        <div class="body">
+            {{x.body}}
+        </div>
+
+        <div class="username">
+            u/{{x.username}}
+        </div>
+
+        <div class="metrics">
+            <ul>
+                <li>
+                    Likes: {{x.likes}}
+                    <br>
+                    <button class="like-button" ng-click="controller.likeNode(x.nodeId, x)">Like</button>
+                </li>
+                <li>
+                    Comments: {{x.cmmnts}}
+                    <br>
+                    <button class="comment-button" ng-click="toggleNodeShow(x)" ng-show="x.show">Comment!</button>
+
+                    <div class="comment-field" ng-hide="x.show">
+                        <textarea class="big-input" type="text" placeholder="Enter a comment." ng-model="x.addComment"></textarea>
+                        <br>
+                        <button ng-click="comment(x, x.nodeId, 2)">Submit</button>
+                        <br>
+                        <button ng-click="toggleNodeShow(x)">Cancel</button>
+                    </div>
+                    {{x.errorResponse}}
+                </li>
+                <li>
+                    Date: {{x.submit_date}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="nodes">
+        <ul ng-if="x.nodeList">
+            <li ng-repeat="x in x.nodeList" ng-include="'postTree'" class="li-width"></li>
+        </ul>
+    </div>
+
+</script>
+
+
+<div class="mainList2">
+
+    <div>
+        <h2>
+            {{post.title}}
+        </h2>
+    </div>
+
+    <div class="body">
+        {{post.body}}
+    </div>
+
+    <div class="username">
+        u/{{post.username}}
+    </div>
+
+    <div class="metrics">
+        <ul>
+            <li>
+                Likes: {{post.likes}}
+                <br>
+                <button class="like-button" ng-click="controller.like(post.id)">Like</button>
+            </li>
+
+            <li>
+                Comments: {{post.cmmnts}}
+                <br>
+                <button class="comment-button" ng-click="toggleShow()" ng-show="post.show">Comment!</button>
+
+                <div class="comment-field" ng-show="!post.show">
+                    <textarea class="big-input" type="text" placeholder="Enter a comment." ng-model="post.addComment"></textarea>
+                    <br>
+                    <button ng-click="comment(post, post.id, 1); toggleShow()">Submit</button>
+                    <br>
+                    <button ng-click="toggleShow()">Cancel</button>
+                </div>
+                {{errorResponse}}
+            </li>
+
+            <li>
+                Date: {{post.submit_date}}
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+<ul class="master-list">
+    <li ng-repeat="x in post.nodeList" ng-include="'postTree'" class="li-width"></li>
+</ul>
